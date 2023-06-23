@@ -1,0 +1,282 @@
+html[data-tema = "dark"]{
+    --bgbody: rgb(31, 31, 31);
+    --text: white;
+}
+
+html{
+    --bgbody: white;
+    --bgcontainer: #fcb2b8;
+    --header: #dd5a65;
+    --text: black;
+    --checked: rgb(57, 56, 56);
+}
+
+body{
+    background-color: var(--bgbody);
+}
+
+.container{
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 100px;
+    border: 1px solid wheat;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.header{
+    position: relative;
+    background-color: var(--bgcontainer);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header > img{
+    width: 180px;
+    padding-right: 5px;
+}
+
+.tema{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 20px;
+    background-color: var(--bgbody);
+    color: var(--text);
+}
+
+h1{
+    font-family: 'Delicious Handrawn';
+    color: var(--header);
+    font-size: 70px;
+    line-height: 80px;
+    letter-spacing: 5px;
+}
+
+.form{
+    padding-top: 15px;
+    position: relative;
+}
+
+.del{
+    position: absolute;
+    right: 0;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.del span{
+    color: var(--text);
+}
+
+.form input, .editform input{
+    margin: auto;
+    display: block;
+    width: 40vw;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.editform{
+    border-radius: 50px;
+    border: 2px dotted black;
+    background-color: var(--bgcontainer);
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.editform h2{
+    margin: 0;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: 'Delicious Handrawn';
+    color: var(--header);
+    font-size: 50px;
+    line-height: 60px;
+    letter-spacing: 5px;
+}
+
+.tasks div{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.custom-checkbox:checked+label::before {
+    border-color: #e83b49;
+    background-color: #e83b49;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #ed384753;
+}
+
+.custom-checkbox:not(:disabled):active+label::before {
+    background-color: #ed384753;
+    border-color: #ed384753;
+}
+
+.custom-checkbox:focus+label::before {
+    box-shadow: 0 0 0 0.2rem #e83b4930;
+}
+
+.custom-checkbox:focus:not(:checked)+label::before {
+    border-color: #ed384753;
+}
+
+.custom-checkbox:disabled+label::before {
+    background-color: #e9ecef;
+}
+
+.tasks p, .tasks label{
+    display: inline;
+    margin: 0;
+    font-size: 25px;
+    line-height: 40px;
+    color: var(--text);
+}
+
+.tasks img, .del img{
+    width: 30px;
+}
+
+.emptyTasks div{
+    display: block;
+}
+
+.emptyTasks img{
+    width: 300px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.emptyTasks p{
+    display: block;
+    text-align: center;
+}
+
+.tasks .checked{
+    text-decoration: line-through;
+    color: var(--checked)
+}
+
+button{
+    border: none;
+    background-color: transparent;
+}
+
+.nodisplay{
+    display: none;
+}
+
+.error, .erroredit{
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+    color: red;
+}
+
+.visibility{
+    visibility: hidden;
+}
+
+@media (max-width:768px) {
+    .del{
+        position: static;
+        transform: translate(0, 0);
+    }
+
+    .form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tasks p, .tasks label{
+        font-size: 20px;
+        line-height: 35px;
+    }
+
+    .editform{
+        padding: 30px;
+    }
+    
+    .editform h2{
+        margin-bottom: 40px;
+        font-size: 35px;
+        line-height: 40px;
+    }
+}
+
+@media (max-width:426px) {
+    .header > img{
+        width: 120px;
+    }
+    
+    h1{
+        color: #e83b49;
+        font-size: 60px;
+        line-height: 70px;
+    }
+
+    .form input, .editform input{
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .emptyTasks img{
+        width: 200px;
+    }
+
+    .editform{
+        padding: 15px;
+    }
+    
+    .editform h2{
+        margin-bottom: 30px;
+        font-size: 30px;
+        line-height: 35px;
+    }
+}
